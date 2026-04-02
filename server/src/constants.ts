@@ -2,6 +2,8 @@ export const DEFAULT_PORT = 3000;
 
 export const DEFAULT_SCORE = 0;
 
+export const BASE_POINTS = 1000;
+
 export const WS_MESSAGE_TYPES = {
   REG: 'reg',
   CREATE_GAME: 'create_game',
@@ -12,7 +14,10 @@ export const WS_MESSAGE_TYPES = {
   UPDATE_PLAYERS: 'update_players',
   START_GAME: 'start_game',
   ANSWER: 'answer',
+  ANSWER_ACCEPTED: 'answer_accepted',
   QUESTION: 'question',
+  QUESTION_RESULT: 'question_result',
+  GAME_FINISHED: 'game_finished',
 } as const;
 
 export const ERROR_MESSAGES = {
