@@ -1,9 +1,5 @@
 import type { WebSocket } from 'ws';
 
-export function handleRegister(ws: WebSocket, data: any) {
-  console.log('handleRegister', data);
-}
-
 export function handleCreateGame(ws: WebSocket, data: any) {
   console.log('handleCreateGame', data);
 }
