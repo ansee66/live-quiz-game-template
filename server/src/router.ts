@@ -1,8 +1,9 @@
 import type { WebSocket } from 'ws';
 import type { WSMessage } from './types';
 import { WS_MESSAGE_TYPES, ERROR_MESSAGES } from './constants';
-import { handleAnswer, handleCreateGame, handleJoinGame, handleStartGame } from './handlers';
+import { handleAnswer, handleJoinGame, handleStartGame } from './handlers';
 import { handleRegister } from './handlers/register';
+import { handleCreateGame } from './handlers/createGame';
 
 
 type Handler = (ws: WebSocket, data: any) => void;
