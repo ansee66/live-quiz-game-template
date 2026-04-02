@@ -17,8 +17,8 @@ export function handleStartGame(ws: WebSocket, data: StartGameData) {
   if (!game) return;
 
   if (game.hostId !== client.playerId) return;
-
   if (game.status !== GAME_STATUS.WAITING) return;
+  if (game.players.length === 0) return;
 
   game.status = GAME_STATUS.IN_PROGRESS;
   game.currentQuestion = 0;

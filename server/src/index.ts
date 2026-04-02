@@ -2,6 +2,7 @@ import { WebSocketServer } from 'ws';
 import { DEFAULT_PORT, ERROR_MESSAGES } from './constants';
 import { handleMessage } from './router';
 import { clients } from './store/clients';
+import { handleDisconnect } from './handlers/disconnect';
 
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : DEFAULT_PORT;
 
@@ -20,7 +21,7 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
-    clients.delete(ws);
+    handleDisconnect(ws);
   });
 });
 

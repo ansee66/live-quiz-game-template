@@ -18,12 +18,17 @@ export function handleAnswer(ws: WebSocket, data: AnswerData) {
   if (game.status !== GAME_STATUS.IN_PROGRESS) return;
 
   if (data.questionIndex !== game.currentQuestion) return;
+  if (data.answerIndex < 0 || data.answerIndex > 3) return;
 
   const player = game.players.find(p => p.index === client.playerId);
   if (!player) return;
   if (player.hasAnswered) return;
 
+  const question = game.questions[game.currentQuestion];
   const now = Date.now();
+
+  if (!game.questionStartTime) return;
+  if (now - game.questionStartTime > question.timeLimitSec * 1000) return;
 
   player.hasAnswered = true;
   player.answerTime = now;
