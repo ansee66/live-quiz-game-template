@@ -1,7 +1,7 @@
 export const ID_LENGTH = 12;
 export const ROOM_CODE_LENGTH = 6;
 
-export const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+export const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 function generateCode(length: number): string {
   let result = '';

@@ -10,4 +10,8 @@ export function broadcastToGame(gameId: string, payload: unknown) {
       send(player.ws, payload);
     }
   }
+
+  if (game.hostWs) {
+    send(game.hostWs, payload);
+  }
 }

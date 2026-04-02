@@ -24,6 +24,7 @@ export function handleCreateGame(ws: WebSocket, data: CreateGameData) {
     id: gameId,
     code,
     hostId: client.playerId,
+    hostWs: ws,
     questions,
     players: [],
     currentQuestion: -1,
