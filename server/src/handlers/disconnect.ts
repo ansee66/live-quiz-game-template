@@ -18,18 +18,6 @@ export function handleDisconnect(ws: WebSocket) {
   const game = games.get(gameId);
   if (!game) return;
 
-  if (game.hostId === playerId) {
-    game.status = GAME_STATUS.FINISHED;
-
-    broadcastToGame(gameId, {
-      type: WS_MESSAGE_TYPES.GAME_FINISHED,
-      data: { scoreboard: [] },
-      id: 0,
-    });
-
-    return;
-  }
-
   game.players = game.players.filter(p => p.index !== playerId);
   game.playerAnswers.delete(playerId);
 
